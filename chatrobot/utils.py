@@ -41,8 +41,6 @@ def god_only():
             moms = Config.OWNER_ID
             if event.sender_id == moms:
                 await func(event)
-            else:
-                pass
 
         return wrapper
 
@@ -62,7 +60,7 @@ def start_chatbot(shortname):
         mod = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(mod)
         print("Starting Your Chat Bot.")
-        print("IMPORTED " + shortname)
+        print(f"IMPORTED {shortname}")
     else:
         import importlib
         import sys
@@ -77,5 +75,5 @@ def start_chatbot(shortname):
         mod.Config = Config
         mod.god_only = god_only()
         spec.loader.exec_module(mod)
-        sys.modules["chatrobot.plugins" + shortname] = mod
-        print("IMPORTED " + shortname)
+        sys.modules[f"chatrobot.plugins{shortname}"] = mod
+        print(f"IMPORTED {shortname}")

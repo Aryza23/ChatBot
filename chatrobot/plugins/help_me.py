@@ -36,8 +36,8 @@ async def sedlyfsir(event):
                f"**Thank You**")
     else:
         text_me = f"{oksir}"
-    formaster = "Sir. How Can I Help You?"
     if event.sender_id == Config.OWNER_ID:
+        formaster = "Sir. How Can I Help You?"
         ok = await chatbot.send_message(event.chat_id, message=formaster, buttons = [
              [custom.Button.inline("Commands For Owner.", data="cmds")],
              [custom.Button.inline("Close 🔐", data="close ")],
@@ -71,5 +71,6 @@ async def help(event):
               
 @chatbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"cmds")))
 async def help(event):
-    msg = (f"<b><u> Commands </b></u> \n<code>➤ /start - Starts Bot \n➤ /block - Reply To User To Block Him \n➤ /unblock - Unblocks A User \n➤ /alive - Am I Alive? \n➤ /broadcast - Broadcasts A Message \n➤ /stats - Show Bot Stats </code>")
+    msg = "<b><u> Commands </b></u> \\n<code>➤ /start - Starts Bot \\n➤ /block - Reply To User To Block Him \\n➤ /unblock - Unblocks A User \\n➤ /alive - Am I Alive? \\n➤ /broadcast - Broadcasts A Message \\n➤ /stats - Show Bot Stats </code>"
+
     await event.edit(msg, parse_mode="HTML")
